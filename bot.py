@@ -52,6 +52,11 @@ async def main():
     logger.info("Ma'lumotlar bazasi ulanmoqda...")
     try:
         await init_db()
+        # Connection pool ni isitish - birinchi so'rov tez bo'lsin
+        from database.connection import AsyncSessionLocal
+        from database.crud import get_all_doctors
+        async with AsyncSessionLocal() as session:
+            await get_all_doctors(session)
     except Exception as e:
         logger.error(f"Database init failed: {e}")
         import services.scheduler
