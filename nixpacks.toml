@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["gcc", "postgresql"]
+nixPkgs = ["gcc"]
 
 [variables]
 NIXPACKS_PYTHON_VERSION = "3.11"
